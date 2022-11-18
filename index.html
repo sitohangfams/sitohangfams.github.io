@@ -6,15 +6,15 @@
    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <title>chan_bot</title>
+   <title>fake_chanbot</title>
 
 <style>
-   *, html,
+*, html,
 body {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   background-color: #21D8C8;
+   font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -23,9 +23,12 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
-table tr td {
-   padding: 10px;
+    
+.bg_img {
+    background-image: url("img1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .wrapper {
@@ -33,6 +36,8 @@ table tr td {
    align-items: center;
    flex-direction: column;
    text-align: center;
+   color: black;
+   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
 input {
@@ -138,26 +143,30 @@ button {
     box-shadow: 0em -3em 0 0 #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 0 #1a0459, -2em -2em 0 0.2em #1a0459;
   }
 }
+
 </style>
 </head>
 
 <body>
-   <div class="container">
-      <div class="wrapper">
-         <h1 id="pertanyaan"></h1>
-         <div class="row">
-            <input id="jawaban" type="text" placeholder="silahkan jawab">
-            <button onclick="botStart()" id="btn">KIRIM</button>
-            <div class="loader" id="load"></div>
+   <div class="bg_img">
+      <div class="container">
+         <div class="wrapper">
+            <h1 id="pertanyaan"></h1>
+            <div class="row">
+               <input id="jawaban" type="text" placeholder="silahkan jawab">
+               <button onclick="botStart()" id="btn">KIRIM</button>
+               <div class="loader" id="load"></div>
+            </div>
          </div>
       </div>
    </div>
-   
-<script type="text/javascript">
+   <!-- Script -->
+<script>
 const pertanyaan = document.getElementById("pertanyaan")
 const jawaban = document.getElementById("jawaban")
 const button = document.getElementById("btn")
 const load = document.getElementById("load")
+const bg_img = document.querySelectorAll(".bg_img")
 
 let init = 0
 
@@ -197,6 +206,7 @@ function botStart() {
       botEnd()
    }
 }
+bg_img.style.display = "block"
 
 function botDelay(jawabanUser) {
    setTimeout(() => {
@@ -224,6 +234,7 @@ function botEnd() {
    btn.style.display = "none"
    load.style.display = "block"
 }
+
 </script>
 
 </body>
