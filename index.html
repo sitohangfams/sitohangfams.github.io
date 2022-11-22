@@ -1,245 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fake_chanbot</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-   <title>fake_chanbot</title>
-
-<style>
-*, html,
-body {
-   margin: 0;
-   padding: 0;
-}
-
-body {
-   box-sizing: border-box;
-   font-family: 'Times New Roman', Times, serif;
-   background: #001AFF;
-   background: -moz-linear-gradient(top, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-   background: -webkit-linear-gradient(top, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-   background: linear-gradient(to bottom, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.wrapper {
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   color: black;
-   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
-}
-
-input {
-   border: none;
-   border-radius: 10px;
-   background-color: #eaeaea;
-   color: #222222;
-   padding: 16px;
-   margin-top: 10px;
-   font-size: 24px;
-   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
-   -webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.75);
-   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.row {
-   display: flex;
-   flex-direction: row;
-}
-
-button {
-   border: none;
-   background-color: #eaeaea;
-   font-size: 24px;
-   padding: 16px;
-   margin-left: 10px;
-   height: 65px;
-   margin-top: 10px;
-   font-weight: 500;
-   width: 4em;
-   border-radius: 8px;
-   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
-   -webkit-box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.75);
-   -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
-
-   background: #001AFF;
-   background: -moz-linear-gradient(top, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-   background: -webkit-linear-gradient(top, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-   background: linear-gradient(to bottom, #001AFF 0%, #FFCFB8 50%, #0001FF 100%);
-}
-
-
-.loader {
-  font-size: 10px;
-  margin: 100px auto;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  -webkit-animation: load4 1.3s infinite linear;
-  animation: load4 1.3s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-@-webkit-keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em #1a0459, 2em -2em 0 0em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 0 #1a0459;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0 #1a0459, 2em -2em 0 0.2em #1a0459, 3em 0 0 0 #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em #1a0459, 2em -2em 0 0 #1a0459, 3em 0 0 0.2em #1a0459, 2em 2em 0 0 #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0em 0 0 #1a0459, 2em 2em 0 0.2em #1a0459, 0 3em 0 0em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0em 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 0em #1a0459, 0 3em 0 0.2em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 0 #1a0459, -2em 2em 0 0.2em #1a0459, -3em 0 0 0 #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0em 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 0.2em #1a0459, -2em -2em 0 0 #1a0459;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0 #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 0 #1a0459, -2em -2em 0 0.2em #1a0459;
-  }
-}
-@keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em #1a0459, 2em -2em 0 0em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 0 #1a0459;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0 #1a0459, 2em -2em 0 0.2em #1a0459, 3em 0 0 0 #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em #1a0459, 2em -2em 0 0 #1a0459, 3em 0 0 0.2em #1a0459, 2em 2em 0 0 #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0em 0 0 #1a0459, 2em 2em 0 0.2em #1a0459, 0 3em 0 0em #1a0459, -2em 2em 0 -1em #1a0459, -3em 0em 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 0em #1a0459, 0 3em 0 0.2em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 -1em #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 0 #1a0459, -2em 2em 0 0.2em #1a0459, -3em 0 0 0 #1a0459, -2em -2em 0 -1em #1a0459;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em #1a0459, 2em -2em 0 -1em #1a0459, 3em 0em 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 0.2em #1a0459, -2em -2em 0 0 #1a0459;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0 #1a0459, 2em -2em 0 -1em #1a0459, 3em 0 0 -1em #1a0459, 2em 2em 0 -1em #1a0459, 0 3em 0 -1em #1a0459, -2em 2em 0 0 #1a0459, -3em 0em 0 0 #1a0459, -2em -2em 0 0.2em #1a0459;
-  }
-}
-
-</style>
-</head>
-
-<body>
-   <div class="bg_img">
+  <body>
+    <div class="bg_img">
       <div class="container">
-         <div class="wrapper">
-            <h1 id="pertanyaan"></h1>
-            <div class="row">
-               <input id="jawaban" type="text" placeholder="silahkan jawab">
-               <button onclick="botStart()" id="btn">KIRIM</button>
-               <div class="loader" id="load"></div>
-            </div>
-         </div>
+        <div class="wrapper">
+          <h1 id="pertanyaan"></h1>
+          <div class="row">
+            <input id="jawaban" type="text" placeholder="silahkan jawab" />
+            <button onclick="botStart()" id="btn">KIRIM</button>
+            <div class="loader" id="load"></div>
+          </div>
+        </div>
       </div>
-   </div>
-
-   <!-- Script -->
-<script>
-const pertanyaan = document.getElementById("pertanyaan")
-const jawaban = document.getElementById("jawaban")
-const button = document.getElementById("btn")
-const load = document.getElementById("load")
-
-let init = 0
-
-const botSay = (data) => {
-   return [
-      "Haii, aku adalah chan_bot. Siapa nama kamu?",
-      `Hallo ${data?.nama} salam kenal ya. Berapa usia kamu ?`,
-      `Oohhhh ${data?.usia}, hoby nya apa?`,
-      `owwuaoww, sama aku juga hoby ${data?.hoby} loh. Kapan nih kita ${data?.hoby} bareng. btw udah punya pacar?`,
-      `Ohhh ${data?.pacar} ya, kalau ulang tahun kamu tanggal berapa?`,
-      `tanggal ${data?.tanggal} ya, mau aku kasih kado gak?`,
-      `${data?.kado} ya!.  Iya ya deh. Udahan dulu ya?`
-      ]
-}
-
-load.style.display = "none"
-
-pertanyaan.innerHTML = botSay()[0]
-
-function botStart() {
-   init++
-   if (init === 1) {
-      botDelay({ nama: jawaban.value })
-   } else if (init === 2) {
-      botDelay({ usia: jawaban.value })
-   } else if (init === 3) {
-      botDelay({ hoby: jawaban.value })
-   } else if (init === 4) {
-      botDelay({ pacar: jawaban.value })
-   } else if (init === 5) {
-      botDelay({ tanggal: jawaban.value })
-   } else if (init === 6) {
-      botDelay({ kado: jawaban.value })
-   } else if (init === 7) {
-      finishing()
-   } else {
-      botEnd()
-   }
-}
-
-function botDelay(jawabanUser) {
-   setTimeout(() => {
-      pertanyaan.innerHTML = botSay(jawabanUser)[init]
-
-      jawaban.value = ""
-   }, 1000)
-}
-
-function finishing() {
-   setTimeout(() => {
-      pertanyaan.innerHTML = `makasih ya udah maen di chan_bot`
-      jawaban.style.display = "none"
-      document.getElementById("btn").innerHTML = "Reset"
-   }, 1000)
-}
-
-function botEnd() {
-   setTimeout(() => {
-      window.location.reload()
-   }, 5000)
-
-   jawaban.style.display = "none"
-   pertanyaan.style.display = "none"
-   btn.style.display = "none"
-   load.style.display = "block"
-}
-
-</script>
-
-</body>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
